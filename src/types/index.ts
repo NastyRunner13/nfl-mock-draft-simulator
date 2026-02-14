@@ -27,7 +27,7 @@ export interface Player {
 export interface Team {
     id: number;
     name: string;
-    abbrevation: string;
+    abbreviation: string;
     needs: Position[];
     context: string;
     color: string
