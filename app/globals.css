@@ -1170,3 +1170,197 @@ button {
 .reasoning-icon {
   font-size: 0.82rem;
 }
+
+/* ─── Team Needs Panel ───────────────────────────────────────────────────── */
+
+.team-needs {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-3d);
+}
+
+.team-needs-header {
+  margin-bottom: 16px;
+}
+
+.team-needs-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.needs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.need-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.need-item.filled .need-position {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.need-position {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid;
+  letter-spacing: 0.06em;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-xs);
+}
+
+.filled-by {
+  font-size: 0.68rem;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.your-picks {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.your-picks h4 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.your-pick-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+}
+
+.your-pick-round {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 24px;
+}
+
+.your-pick-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  SUGGESTED PICKS                                                          */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.suggested-picks {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+  box-shadow: var(--shadow-3d);
+  animation: fadeIn 0.3s ease;
+}
+
+.suggested-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.suggested-icon {
+  font-size: 0.95rem;
+}
+
+.suggested-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.suggested-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.suggested-item:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.suggested-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.suggested-rank {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  min-width: 28px;
+}
+
+.suggested-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.suggested-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.suggested-school {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.suggested-item-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.suggested-reason {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+}
+
+.suggested-reason.need {
+  color: var(--accent-green);
+  background: var(--accent-green-dim);
+}
+
+.suggested-reason.bpa {
+  color: var(--accent-blue);
+  background: rgba(99, 102, 241, 0.08);
+}
