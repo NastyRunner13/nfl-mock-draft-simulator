@@ -1364,3 +1364,304 @@ button {
   color: var(--accent-blue);
   background: rgba(99, 102, 241, 0.08);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/*  ROUND TRANSITION OVERLAY                                                 */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.round-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.round-transition-overlay.active {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.round-transition-card {
+  text-align: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.round-transition-card.pop-in {
+  animation: roundPop3d 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.round-transition-card.pop-out {
+  animation: roundPopOut 0.4s ease forwards;
+}
+
+@keyframes roundPop3d {
+  0% {
+    opacity: 0;
+    transform: perspective(600px) rotateX(-30deg) scale(0.3);
+  }
+
+  60% {
+    opacity: 1;
+    transform: perspective(600px) rotateX(8deg) scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes roundPopOut {
+  0% {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: perspective(600px) rotateX(20deg) scale(0.6);
+  }
+}
+
+.round-transition-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.round-transition-number {
+  font-size: 6rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  margin-bottom: 12px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 60px rgba(201, 168, 76, 0.3);
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, #ffffff 30%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.round-transition-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+}
+
+/* ─── Fast Forward Button ────────────────────────────────────────────────── */
+
+.fast-forward-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 1px solid #f59e0b33;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.fast-forward-btn:hover {
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), 0 0 12px rgba(245, 158, 11, 0.15);
+}
+
+.fast-forward-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-xs);
+}
+
+.ff-icon {
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+/* ─── FF Stacked Cards ──────────────────────────────────────────────────── */
+
+.ff-stack-container {
+  position: fixed;
+  top: 160px;
+  right: 24px;
+  z-index: 90;
+  max-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.ff-stack-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid #f59e0b33;
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.ff-stack-icon {
+  font-size: 0.82rem;
+}
+
+.ff-stack-cards {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: visible;
+  padding-right: 4px;
+}
+
+.ff-stack-cards::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ff-stack-cards::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+}
+
+.ff-stack-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  width: 280px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-bottom: -6px;
+  position: relative;
+  animation: ffCardIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--stack-index, 0) * 60ms);
+}
+
+@keyframes ffCardIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.ff-stack-card:last-child {
+  margin-bottom: 0;
+}
+
+.ff-stack-card:hover,
+.ff-stack-card.hovered {
+  transform: translateX(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-color-hover);
+  z-index: 100 !important;
+  margin-bottom: 0;
+}
+
+.ff-card-pick-num {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  min-width: 28px;
+  text-align: center;
+}
+
+.ff-card-team {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 48px;
+}
+
+.ff-card-team-name {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.ff-card-player {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ff-card-player-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ff-card-pos {
+  font-size: 0.58rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ff-card-reasoning {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color-hover);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.5;
+  z-index: 200;
+  animation: fadeIn 0.2s ease;
+}
