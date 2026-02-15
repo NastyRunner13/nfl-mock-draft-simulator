@@ -972,3 +972,201 @@ button {
   border-radius: var(--radius-md);
   border-left: 2px solid var(--text-muted);
 }
+
+/* ─── Draft History ──────────────────────────────────────────────────────── */
+
+.draft-history {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 200px;
+  box-shadow: var(--shadow-3d);
+}
+
+.draft-history-header {
+  padding: 18px 24px 0;
+}
+
+.draft-history-header h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.round-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.round-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.round-tab:hover {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+}
+
+.round-tab.active {
+  background: var(--accent-primary-dim);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.round-tab.current::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-green);
+}
+
+.round-count {
+  font-size: 0.58rem;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.picks-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.picks-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.picks-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.picks-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+}
+
+.no-picks {
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* 3D slide-in — picks tilt in from above like cards dealt onto a table */
+.pick-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+  animation: deal3d 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition: background var(--transition-fast), transform 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+@keyframes deal3d {
+  0% {
+    opacity: 0;
+    transform: perspective(600px) rotateX(-15deg) translateY(-12px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg) translateY(0);
+  }
+}
+
+.pick-entry:hover {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+.pick-entry.user-pick {
+  background: var(--accent-primary-dim);
+}
+
+.pick-entry-number {
+  min-width: 32px;
+}
+
+.pick-overall {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.pick-team-indicator {
+  width: 3px;
+  height: 26px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.pick-entry-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.pick-entry-team {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-pick-badge {
+  font-size: 0.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  background: var(--accent-primary-dim);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+.pick-entry-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pick-player-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pick-reasoning {
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity var(--transition-fast);
+}
+
+.pick-reasoning:hover {
+  opacity: 0.8;
+}
+
+.reasoning-icon {
+  font-size: 0.82rem;
+}
