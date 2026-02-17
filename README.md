@@ -2,7 +2,7 @@
 
 An interactive single-page NFL Mock Draft Simulator where you draft for your chosen team while AI controls the remaining opponents. Built as a full-stack application with LLM-powered decision-making for AI-controlled teams.
 
-> **Loom Walkthrough:** [Watch the 5–10 minute demo →](#) <!-- Replace with actual Loom link -->
+> **Loom Walkthrough:** [Watch the 5 minute demo →](https://www.loom.com/share/bc2c2f7bdcfe4cc88c8908256eecbeac) 
 
 ---
 
